@@ -144,8 +144,8 @@ export const ARTICLES: Article[] = [
     section: 'Politics',
     isLead: true,
     isFree: true,
-    imageUrl: 'https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg',
-    imageCaption: 'A succession of high-level female advisers and agency heads have stepped down across domestic and national security posts.',
+    imageUrl: '/src/assets/images/whitehouse_officials_departure_1792032453518.jpg',
+    imageCaption: 'A senior administration official walks past the West Wing colonnade on Wednesday morning amid discussions over executive agency reorganizations.',
     imageCredit: 'Kenny Holston / The New York Times',
     commentsCount: 842,
     pullQuote: {
@@ -192,8 +192,9 @@ export const ARTICLES: Article[] = [
     publishedAt: 'Oct. 14, 2026',
     updatedAt: '1:20 p.m. ET',
     section: 'Politics',
-    isFree: true,
-    commentsCount: 318,
+    imageUrl: '/src/assets/images/press_briefing_room_podium_1792032453174.jpg',
+    imageCaption: 'The James S. Brady Press Briefing Room at the White House on Tuesday afternoon.',
+    imageCredit: 'Doug Mills / The New York Times',
     pullQuote: {
       text: 'I completed my legal education in good standing and took pride in my work; administrative bar filings were handled by previous counsel.',
       attribution: 'Katie Zacharia',
@@ -218,6 +219,9 @@ export const ARTICLES: Article[] = [
     section: 'World',
     isFree: true,
     commentsCount: 1100,
+    imageUrl: '/src/assets/images/kyiv_night_substation_blackout_1792032453782.jpg',
+    imageCaption: 'Emergency utility technicians repair damaged substation transformers in Kyiv following coordinated overnight missile strikes.',
+    imageCredit: 'Finbarr O’Reilly / The New York Times',
     pullQuote: {
       text: 'Without constant low-orbit telemetry, our early detection radar windows narrow from twenty minutes to under five.',
       attribution: 'Ukrainian Air Defense Commander',
@@ -241,6 +245,9 @@ export const ARTICLES: Article[] = [
     section: 'Business',
     isFree: true,
     commentsCount: 420,
+    imageUrl: '/src/assets/images/oil_refinery_diesel_logistics_1792032453815.jpg',
+    imageCaption: 'Coastal distillation units and refined product marine tankers at dusk.',
+    imageCredit: 'Callaghan O’Hare / The New York Times',
     pullQuote: {
       text: 'You cannot simply ship raw fuel across the Atlantic and pump it directly into domestic freight trucks without meeting EPA grade benchmarks.',
       attribution: 'Energy Market Analyst',

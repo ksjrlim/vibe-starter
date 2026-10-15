@@ -1,5 +1,5 @@
-import React from 'react';
-import { ArrowLeft, Bookmark, Share2, MessageSquare, Type } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ArrowLeft, Bookmark, Share2, MessageSquare, Type, Gift, Printer } from 'lucide-react';
 import { Article } from '../types';
 import { AudioPlayer } from './AudioPlayer';
 
@@ -10,6 +10,7 @@ interface ArticleViewProps {
   onToggleSave: (articleId: string) => void;
   isSaved: boolean;
   onShare: (article: Article) => void;
+  onGiftArticle: (article: Article) => void;
   onSelectArticle: (articleId: string) => void;
   relatedArticles: Article[];
   fontSize: 'standard' | 'medium' | 'large';
@@ -23,11 +24,24 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
   onToggleSave,
   isSaved,
   onShare,
+  onGiftArticle,
   onSelectArticle,
   relatedArticles,
   fontSize,
   onChangeFontSize,
 }) => {
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalHeight > 0) {
+        setScrollProgress((window.scrollY / totalHeight) * 100);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   // Font scale mappings
   const headlineClass =
     fontSize === 'large'
@@ -68,6 +82,15 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
         {/* Reader utilities */}
         <div className="flex items-center gap-1">
           <button
+            onClick={() => onGiftArticle(article)}
+            title="Gift this article (10 free every month)"
+            className="flex items-center gap-1 px-2 py-1 text-emerald-800 bg-emerald-50 hover:bg-emerald-100 rounded text-[11px] font-bold font-nyt-sans transition-colors cursor-pointer mr-1"
+          >
+            <Gift className="w-3.5 h-3.5 text-emerald-600" />
+            <span className="hidden sm:inline">Gift</span>
+          </button>
+
+          <button
             onClick={onChangeFontSize}
             title={`Font size: ${fontSize}. Click to adjust.`}
             className="p-1.5 text-gray-700 hover:text-black rounded transition-colors cursor-pointer flex items-center"
@@ -92,6 +115,14 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
             <Share2 className="w-4 h-4" />
           </button>
         </div>
+      </div>
+
+      {/* Reading Progress Indicator */}
+      <div className="sticky top-[45px] z-30 w-full bg-transparent h-[2.5px]">
+        <div
+          className="bg-[#326891] h-full transition-all duration-150"
+          style={{ width: `${scrollProgress}%` }}
+        />
       </div>
 
       {/* Article Body Container */}
