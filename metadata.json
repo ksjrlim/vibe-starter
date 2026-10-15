@@ -1,0 +1,6 @@
+{
+  "name": "The New York Times - Digital Edition",
+  "description": "Interactive mobile-first news app modeled after The New York Times front page and reader experience.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
